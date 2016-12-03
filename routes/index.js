@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 /* GET download dataset file, for Master's Thesis */
 router.get('/datasets/:filename', function(req, res){
-	var file = '../data/'+req.params.filename+'.tar.gz';
+	var file = './data/'+req.params.filename+'.tar.gz';
 
 	// if file exists, download it
 	fs.access(file, fs.F_OK, function(err) {
@@ -19,6 +19,7 @@ router.get('/datasets/:filename', function(req, res){
 	        console.log(file+' does not exist.');
 	    }
 	});
+
 });
 
 module.exports = router;
